@@ -15,3 +15,7 @@ export function getStream(id) {
 export function deleteStream(id) {
   return http.delete(`/streams/${id}`).then(res => res.data);
 }
+
+export function createStream(stream) {
+  return http.post('/streams', stream).then(res => res.data);
+}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
-import { getStream } from '../../services/stream-services';
+import { getStream } from '../../../services/stream-services';
 
-import { Loading, TitlePage } from '../'
+import { Loading, TitlePage } from '../../'
 import { Link } from 'react-router-dom';
 
 const convertToHours = (number) => {
