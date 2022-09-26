@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getStreams, deleteStream } from '../../services/stream-services';
+import { getStreams, deleteStream } from '../../../services/stream-services';
 
-import { StreamItem, TitlePage } from '../'
+import { StreamItem, TitlePage, Loading } from '../..'
 
 function StreamList () {
 
@@ -28,9 +28,17 @@ function StreamList () {
   }
 
   return (
-    <div className="stream-list d-flex flex-column align-items-center container mt-4">
-      <TitlePage message="List of Streams" />
-      { streams ? streams.map(stream => <StreamItem key={stream.id} {...stream} onDelete={handleDelete}/>) : <div>123123</div> }
+    <div className="stream-list container">
+      <TitlePage message="List of Streams" icon="wpexplorer" />
+      <div className="d-flex flex-column align-items-center mt-4">
+      { 
+        streams ? 
+        <div className="row">
+          { streams.map(stream => <StreamItem key={stream.id} {...stream} onDelete={handleDelete}/>)}
+        </div> : 
+        <Loading /> 
+      }
+      </div>
     </div>
   );
 }
